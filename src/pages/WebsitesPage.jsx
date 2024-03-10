@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import WebsiteCard from '../components/WebsiteCard'
-import axios from 'axios'
-import {API_URL} from "/src/services/API_URL.jsx"
+import { WebsiteContext } from '../context/website.context'
 
 const WebsitesPage = () => {
 
-    const [websites, setWebsites] = useState([])
+    const { websites, fetchWebsites } = useContext(WebsiteContext)
 
-    const fetchWebsites = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/websites`)
-            console.log(response.data)
-            setWebsites(response.data)
-        } catch (error) {
-            console.error("Could not fetch websites", error)
-        }
-    }
-
+ 
     useEffect(() => {
         fetchWebsites()
-    },[])
-
+    },[fetchWebsites])
 
   return (
     <div className='flex flex-col w-full mx-auto max-w-[1600px] h-full flex-1 mb-6'>
