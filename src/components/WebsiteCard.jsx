@@ -20,7 +20,7 @@ const WebsiteCard = ({website}) => {
             }
         </div>
         <div className="flex justify-between items-center p-2">
-            <NavLink to={`websites/${website.id}`}>
+            <NavLink to={`/websites/${website.id}`}>
                 <button className="bg-blue-500 text-blue-100 px-2 rounded">...</button>
             </NavLink>
             <p className='published-date text-xs text-right'>Published: {website.publishDate}</p>
