@@ -6,11 +6,11 @@ import AboutPage from './pages/AboutPage'
 import WebsitesPage from './pages/WebsitesPage'
 import PublishPage from './pages/PublishPage'
 import WebsiteDetailsPage from './pages/WebsiteDetailsPage'
+import EditWebsiteDetailsPage from './pages/EditWebsiteDetailsPage.jsx'
 
 const App = () => {
   return (
     <div className="flex flex-col bg-gray-300 w-full min-h-dvh">
-      <Navbar/>
 
       <Routes>
 
@@ -20,6 +20,7 @@ const App = () => {
         <Route path='/websites' element={<WebsitesPage />}/>
         <Route exact path='/websites/publish' element={<PublishPage />}/>
         <Route path='/websites/:websiteId' element={<WebsiteDetailsPage />}/>
+        <Route path='/websites/edit/:websiteId' element={<EditWebsiteDetailsPage />} />
 
       </Routes>
       
