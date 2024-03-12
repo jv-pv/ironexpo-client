@@ -1,10 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import IronHackLogo from "/src/assets/ironhack-logo.jpg";
 
-const Navbar = () => {
+const Navbar = ({websiteId}) => {
 
     const location = useLocation();
     const isWebsitesPage = location.pathname === "/websites";
+    const isWebsiteDetailsPage = location.pathname === `/websites/${websiteId}`
 
     return (
     <header className="bg-gray-300 h-16 w-full">
@@ -24,6 +25,11 @@ const Navbar = () => {
                     {isWebsitesPage && (
                         <NavLink to="/websites/publish">
                             <li className="block bg-blue-600 text-blue-200 rounded-2xl px-3 py-1">Publish</li>
+                        </NavLink>
+                    )}
+                    {isWebsiteDetailsPage && (
+                        <NavLink to={`/websites/edit/${websiteId}`}>
+                            <li className="block bg-blue-600 text-blue-200 rounded-2xl px-3 py-1">Edit</li>
                         </NavLink>
                     )}
                     <NavLink to="/about">
