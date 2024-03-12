@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react'
 import WebsiteCard from '../components/WebsiteCard'
 import { WebsiteContext } from '../context/website.context'
+import Navbar from '../components/Navbar'
 
 const WebsitesPage = () => {
 
@@ -9,9 +10,11 @@ const WebsitesPage = () => {
  
     useEffect(() => {
         fetchWebsites()
-    },[fetchWebsites])
+    },[])
 
   return (
+    <>
+    <Navbar/>
     <div className='flex flex-col w-full mx-auto max-w-[1600px] h-full flex-1 mb-6'>
         <div className='p-2 my-5'>
             <h2 className='text-2xl mx-4'>Explore Published Sites</h2>
@@ -29,6 +32,8 @@ const WebsitesPage = () => {
 
 
     </div>
+
+    </>
   )
 }
 
