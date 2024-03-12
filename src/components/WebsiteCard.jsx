@@ -4,7 +4,7 @@ const WebsiteCard = ({website}) => {
   return (
     <div className='card flex flex-col w-96 h-auto max-h-[550px] min-h-[550px] bg-gray-100 rounded-xl justify-self-center p-2'>
         <div className='card-image'>
-            {/* <iframe src={website.url}></iframe> */}
+            <iframe src={website.url}></iframe>
         </div>
         <div className="card-link text-center text-blue-500 text-base p-2 block">
             <a href={website.url}>{website.url}</a>
