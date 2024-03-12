@@ -101,37 +101,42 @@ header {
 /* Publish Page */
 
 .publish-page-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   flex: 1;
 }
 
 .publish-form-card-wrapper {
-  display: flex;
+  grid-column: 1/5;
+  grid-row: 1/1;
   width: 100%;
-  flex: 1;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
-.form-container-inner {
+.publish-form-container {
+  width: 100%;
   height: 100%;
-  width: 27rem;
   background-color: rgb(173, 173, 173);
-  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.form-container-inner form {
+.publish-form-container form {
   display: flex;
-  height: 100%;
-  max-height: 800px;
   flex-direction: column;
+  justify-content: space-around;
   gap: 0.7rem;
+  height: 100%;
+  width: 100%;
   padding: 1rem;
 }
 
-form input, form textarea {
+.text-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.publish-form-container form input, form textarea {
   border-radius: 7px;
   padding: 0.4rem;
 }
@@ -173,6 +178,21 @@ form input, form textarea {
   width: 100%;
 }
 
+.other-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .other-input input {
   width: 100%;
+}
+
+.preview-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  grid-column: 5/13;
 }
