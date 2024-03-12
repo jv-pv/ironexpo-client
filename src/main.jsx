@@ -7,11 +7,11 @@ import { WebsiteProvider } from './context/website.context.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <WebsiteProvider>
         <App />
       </WebsiteProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
