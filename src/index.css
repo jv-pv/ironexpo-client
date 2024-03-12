@@ -16,10 +16,14 @@ header {
 
 .card-image iframe {
   width: 100%;
-  height: 325px; 
+  height: 350px; 
   border: none;
   user-select: none;
   pointer-events: none;
+}
+
+.card-description {
+  word-wrap: break-word;
 }
 
 .tech-tag {
@@ -115,7 +119,7 @@ header {
 .publish-form-container {
   width: 100%;
   height: 100%;
-  background-color: rgb(173, 173, 173);
+  background-color: rgb(177, 189, 202);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
