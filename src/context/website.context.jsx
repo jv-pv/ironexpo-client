@@ -1,19 +1,21 @@
 import { createContext, useState } from 'react'
 import {API_URL} from "/src/services/API_URL.jsx"
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
 
 const WebsiteContext = createContext({
   websites: [],
   fetchWebsites: () => {},
-  fetchWebsiteDetails: () => {}
+  websiteTech: [],
+  fetchWebsiteTech: () => {},
+  websiteCategories: [],
+  fetchWebsiteCategories: () => {}
 })
 
 const WebsiteProvider = ({children}) => {
 
   const [websites, setWebsites] = useState([])
-
-  const { websiteId } = useParams()
+  const [websiteTech, setWebsiteTech] = useState([])
+  const [websiteCategories, setWebsiteCategories] = useState([])
 
   const fetchWebsites = async () => {
     try {
@@ -24,17 +26,26 @@ const WebsiteProvider = ({children}) => {
     }
   }
 
-  const fetchWebsiteDetails = async () => {
+  const fetchWebsiteTech = async () => {
     try {
-      const response = await axios.get(`${API_URL}/websites/${websiteId}`)
+      const response = await axios.get(`${API_URL}/technologies`)
+      setWebsiteTech(response.data)
     } catch (error) {
-      console.error("Error fetching website details", error)
+      console.error("Error fetching websites technologies", error)
     }
   }
 
+  const fetchWebsiteCategories = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/categories`)
+      setWebsiteCategories(response.data)
+    } catch (error) {
+      console.error("Error fetching websites categories", error)
+    }
+  }
 
   return (
-    <WebsiteContext.Provider value={{websites, fetchWebsites, fetchWebsiteDetails}}>
+    <WebsiteContext.Provider value={{websites, websiteTech, websiteCategories, fetchWebsites, fetchWebsiteTech, fetchWebsiteCategories}}>
       {children}
     </WebsiteContext.Provider>
   )
