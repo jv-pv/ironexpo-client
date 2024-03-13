@@ -103,7 +103,8 @@ header {
 /* Publish Page and Edit Page Forms*/
 
 .publish-page-container,
-.edit-page-container {
+.edit-page-container,
+.home-page-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   flex: 1;
@@ -129,6 +130,8 @@ header {
   height: 100%;
   width: 100%;
   padding: 1rem;
+  background-color: #151b4d;
+  color: white;
 }
 
 .text-input-wrapper {
@@ -142,6 +145,7 @@ form input,
 form textarea {
   border-radius: 7px;
   padding: 0.4rem;
+  color: #151b4d;
 }
 
 .tech-container,
@@ -252,13 +256,58 @@ form textarea {
   flex: 1;
   position: relative;
   overflow: hidden;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: #151b4d;
+  z-index: 1;
 }
-
 
 /* Remove scroll bar caused by canvas */
 #canvas {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 0;
 }
 
+.home-page-content {
+  grid-column: 2/12;
+  grid-row: 2;
+  align-self: center;
+  height: 100%;
+  display: grid;
+  z-index: 2;
+  background: rgba(82, 157, 220, 0.08);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.3px);
+-webkit-backdrop-filter: blur(5.3px);
+border: 1px solid rgba(82, 157, 220, 0.3);
+}
+
+
+.hero-text {
+  font-size: 5rem;
+  grid-column: 1/4;
+  padding-left: 1rem;
+  align-self: flex-end;
+  color: white;
+}
+
+.hero-subtitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1/12;
+  width: 100%;
+  padding-left: 1rem;
+  color: white;
+}
+
+.hero-subtitle h1 {
+  font-size: 3rem;
+}
+
+.hero-subtitle p {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
