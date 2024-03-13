@@ -10,7 +10,7 @@ const Navbar = ({websiteId}) => {
     return (
     <header className="bg-gray-300 h-16 w-full">
 
-        <div className="flex items-center w[90%] mx-auto max-w-[1600px] h-full px-4">
+        <div className="flex items-center w[90%] mx-auto h-full px-4">
 
             <NavLink to="/">
                 <div className="flex items-center">
@@ -27,11 +27,11 @@ const Navbar = ({websiteId}) => {
                             <li className="block bg-blue-600 text-blue-200 rounded-2xl px-3 py-1">Publish</li>
                         </NavLink>
                     )}
-                    {isWebsiteDetailsPage && (
+                    {/* {isWebsiteDetailsPage && (
                         <NavLink to={`/websites/edit/${websiteId}`}>
                             <li className="block bg-blue-600 text-blue-200 rounded-2xl px-3 py-1">Edit</li>
                         </NavLink>
-                    )}
+                    )} */}
                     <NavLink to="/about">
                         <li className="block bg-blue-600 text-blue-200 rounded-2xl px-3 py-1">About</li>
                     </NavLink>
