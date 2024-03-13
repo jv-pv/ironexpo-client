@@ -1,14 +1,21 @@
 import { NavLink } from "react-router-dom"
 import Navbar from "../components/Navbar"
+import { useEffect, useRef } from "react"
 
 const HomePage = () => {
+
+  
+
+
+
+
   return (
-    <div>
-      <Navbar/>
-        <NavLink to="/websites">
-            <p>Explore</p>
-        </NavLink>
-    </div>
+      <>
+        <Navbar/>
+        <div className="home-page-container">
+
+        </div>
+      </>
   )
 }
 
