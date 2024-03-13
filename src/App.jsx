@@ -10,7 +10,7 @@ import EditWebsiteDetailsPage from './pages/EditWebsiteDetailsPage.jsx'
 
 const App = () => {
   return (
-    <div className="flex flex-col bg-gray-300 w-full min-h-dvh">
+    <div className="flex flex-col bg-blue-100 w-full min-h-dvh">
 
       <Routes>
 

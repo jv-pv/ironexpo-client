@@ -1,7 +1,7 @@
 // By wrapping the entire code inside an IIFE, we create a separate scope for the variables and functions defined within it. This prevents them from polluting the global scope and avoids naming conflicts with other scripts or variables.
 // The IIFE also ensures that the code is executed only once, even if the script is loaded multiple times.
 
-(function () { // IIFE Immediately Invoked Function
+(function () { // IIFE Immediately Invoked Function Expression
   console.log("Particle JS running!");
   // Before executing the rest of the code, we check if the canvas element exists in the DOM using ===>
   let canvas = document.getElementById("canvas");
@@ -12,7 +12,7 @@
 
   let ctx = canvas.getContext("2d");
   let particles = [];
-  let randoSpeed = 5;
+  let randoSpeed = 2;
 
   class Particle {
     constructor() {

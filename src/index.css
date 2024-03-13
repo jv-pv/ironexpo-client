@@ -250,7 +250,6 @@ form textarea {
 
 .home-page-container {
   flex: 1;
-  background-color: rgb(229, 229, 229);
   position: relative;
   overflow: hidden;
 }
