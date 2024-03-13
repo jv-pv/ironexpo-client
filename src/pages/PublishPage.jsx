@@ -253,7 +253,7 @@ const PublishPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="bg-gray-500 text-blue-50 p-2 rounded">
+            <button type="submit" className="bg-blue-600 text-blue-50 p-2 rounded">
               Submit
             </button>
           </form>
@@ -275,7 +275,7 @@ const PublishPage = () => {
                 <img
                   src="/src/assets/placeholder-image.png"
                   alt="placeholder-img"
-                  className="w-full h-[350px]"
+                  className="w-full h-[350px] object-contain"
                 />
               )}
             </div>

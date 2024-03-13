@@ -60,7 +60,7 @@ const WebsiteDetailsPage = () => {
 
     </div>
 
-    <div className="w-full max-w-[750px] h-full" style={{textAlign: selectedWebsite.description.length > 100 ? "left" : "center"}}>
+    <div className="w-full max-w-[750px] h-full text-blue-50" style={{textAlign: selectedWebsite.description.length > 100 ? "left" : "center"}}>
       {selectedWebsite.description}
     </div>
 
