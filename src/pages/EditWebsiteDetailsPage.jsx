@@ -330,7 +330,7 @@ const EditWebsiteDetailsPage = () => {
                 <img
                   src="/src/assets/placeholder-image.png"
                   alt="placeholder-img"
-                  className="w-full h-[350px]"
+                  className="w-full h-[350px] object-contain"
                 />
               )}
             </div>
