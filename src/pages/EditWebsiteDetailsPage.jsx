@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { WebsiteContext } from "../context/website.context";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { API_URL } from "/src/services/API_URL.jsx";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 
 const EditWebsiteDetailsPage = () => {
   const { websiteId } = useParams();
+  const navigate = useNavigate()
   const {
     websiteTech,
     websiteCategories,
@@ -104,7 +105,7 @@ const EditWebsiteDetailsPage = () => {
           } else {
             return {
               ...prev,
-              [name]: prev[name].filter((tech) => tech !== value),
+              [name]: prev[name].filter((element) => element !== value),
             };
           }
         }
@@ -119,6 +120,9 @@ const EditWebsiteDetailsPage = () => {
 
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
+
+    // const techArr = editedWebsite.technologiesOther.split(",")
+    // console.log(techArr)
 
     const currentDate = new Date();
     const publishDate = currentDate.toLocaleDateString("en-US", {
@@ -136,6 +140,15 @@ const EditWebsiteDetailsPage = () => {
     };
 
     console.log(editedWebsiteData);
+
+    // try {
+    //   axios.put(`${API_URL}/websites/${websiteId}`, editedWebsiteData)
+    //   .then((response) => {
+    //     navigate(`/websites/${websiteId}`)
+    //   })
+    // } catch (error) {
+    //   console.error("Put request was unsuccesful.", error)
+    // }
   };
 
   return (
@@ -283,10 +296,73 @@ const EditWebsiteDetailsPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="bg-gray-200 p-2 rounded">
+            <button type="submit" className="bg-gray-500 text-blue-50 p-2 rounded">
               Submit
             </button>
           </form>
+        </div>
+
+        <div className="preview-card-container">
+          <div className="preview-card flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-200 rounded-xl justify-self-center p-2">
+            <div className="card-image bg-gray-300">
+              {editedWebsite.url ? (
+                <iframe
+                  src={
+                    editedWebsite.url.startsWith("http://") ||
+                    editedWebsite.url.startsWith("https://")
+                      ? editedWebsite.url
+                      : `https://${editedWebsite.url}`
+                  }
+                ></iframe>
+              ) : (
+                <img
+                  src="/src/assets/placeholder-image.png"
+                  alt="placeholder-img"
+                  className="w-full h-[350px]"
+                />
+              )}
+            </div>
+            <div className="card-link text-center text-blue-500 text-base p-2 block">
+              {editedWebsite.url ? (
+                <a href={editedWebsite.url} target="_blank">
+                  {editedWebsite.url}
+                </a>
+              ) : (
+                <p>www.yourwebsite.com</p>
+              )}
+            </div>
+            {editedWebsite.description ? (
+              <p className="card-description p-2 text-sm flex-1">
+                {editedWebsite.description}
+              </p>
+            ) : (
+              <p className="card-description p-2 text-sm flex-1">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
+                eveniet eaque nihil eligendi doloribus autem dolor excepturi
+                aperiam deserunt consequuntur.
+              </p>
+            )}
+            <div className="flex flex-wrap w-full p-2 gap-2">
+              {editedWebsite.technologies.length > 0 ? (
+                editedWebsite.technologies.map((tech, index) => (
+                  <span className="tech-tag" key={index}>
+                    {tech}
+                  </span>
+                ))
+              ) : (
+                <>
+                  <span className="tech-tag">Lorem</span>
+                  <span className="tech-tag">Ipsum</span>
+                  <span className="tech-tag">Dolor</span>
+                </>
+              )}
+            </div>
+            <div className="flex justify-end items-center p-2">
+              <p className="published-date text-xs">
+                Published: Month day, year{" "}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>
