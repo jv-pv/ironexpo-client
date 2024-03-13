@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
-import {API_URL} from "/src/services/API_URL.jsx"
+import { useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { API_URL } from "/src/services/API_URL.jsx"
 import axios from "axios";
-import WebsitesPage from "./WebsitesPage";
 import Navbar from "../components/Navbar";
 
 
@@ -10,6 +9,7 @@ const WebsiteDetailsPage = () => {
 
   const [selectedWebsite, setSelectedWebsite] = useState(null)
   const { websiteId } = useParams()
+  const navigate = useNavigate()
 
   const fetchWebsiteDetails = async () => {
     try {
@@ -24,6 +24,12 @@ const WebsiteDetailsPage = () => {
     fetchWebsiteDetails()
   }, [websiteId])
 
+  const deleteProject = () => {
+    axios.delete(`${API_URL}/websites/${websiteId}`)
+    .then((response) => {
+      navigate("/websites")
+    })
+  }
 
   return (
     <>
@@ -42,7 +48,7 @@ const WebsiteDetailsPage = () => {
         </div>
 
         <div className="url-bar">
-          <input type="text" defaultValue={selectedWebsite.url}/>
+          <input type="text" defaultValue={selectedWebsite.url} readOnly/>
         </div>
 
 
@@ -54,19 +60,25 @@ const WebsiteDetailsPage = () => {
 
     </div>
 
-    <div>
-      <a href={selectedWebsite.url}>{selectedWebsite.url}</a>
-    </div>
-
-    <div className="description">
+    <div className="w-full max-w-[750px] h-full" style={{textAlign: selectedWebsite.description.length > 100 ? "left" : "center"}}>
       {selectedWebsite.description}
     </div>
 
-    <div className="tech-tags">
+    <div className="flex items-center justify-center gap-4 w-full">
       {selectedWebsite.technologies.map((site, index) => (
          <span className="tech-tag" key={index}>{site}</span>
       ))
       }
+    </div>
+
+    <div className=" flex justify-center items-center gap-8 w-[250px] h-auto">
+      
+      <NavLink to={`/websites/edit/${websiteId}`}>
+        <button className="bg-blue-600 text-blue-200 rounded-2xl px-3 py-1">Edit</button>
+      </NavLink>
+
+      <button className="bg-red-600 text-blue-200 rounded-2xl px-3 py-1" onClick={deleteProject}>Delete</button>
+
     </div>
 
   </div>
