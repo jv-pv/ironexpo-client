@@ -1,9 +1,13 @@
 import { useState, useId, useContext, useEffect } from "react";
-import Navbar from "../components/Navbar";
 import { WebsiteContext } from "../context/website.context";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "/src/services/API_URL.jsx"
+import Navbar from "../components/Navbar";
+import axios from "axios";
 
 const PublishPage = () => {
   const id = useId();
+  const navigate = useNavigate()
   const { websiteTech, websiteCategories, fetchWebsiteTech, fetchWebsiteCategories } = useContext(WebsiteContext);
 
   useEffect(() => {
@@ -53,7 +57,7 @@ const PublishPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handlePublishFormSubmit = (e) => {
     e.preventDefault()
 
     // Create array from custom technologies
@@ -90,7 +94,14 @@ const PublishPage = () => {
       publishDate: publishDate
     }
 
-    console.log(websiteData)
+    try {
+      axios.post(`${API_URL}/websites`, websiteData)
+      .then((response) => {
+        navigate("/websites")
+      })
+    } catch (error) {
+      console.error("Post request was unsuccesful.", error)
+    }
 
   }
 
@@ -101,12 +112,11 @@ const PublishPage = () => {
       <div className="publish-page-container">
         {/* <h1>Publish your project</h1> */}
 
-        <div className="publish-form-card-wrapper">
             {/* <h2 className="text-2xl text-center font-semibold mb-2">Please fill out this form</h2> */}
 
             <div className="publish-form-container">
 
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handlePublishFormSubmit}>
 
                 <div className="text-input-wrapper">
 
@@ -114,8 +124,8 @@ const PublishPage = () => {
                 <input
                   type="text"
                   id={"url-" + id}
-                  value={newWebsite.url}
                   name="url"
+                  value={newWebsite.url}
                   placeholder="URL"
                   onChange={handleFormChange}
                 />
@@ -123,19 +133,19 @@ const PublishPage = () => {
                 <label htmlFor={"url-" + id} className="text-xl">Dascription:</label>
                 <textarea
                   id={"description" + id}
-                  value={newWebsite.description}
                   name="description"
+                  value={newWebsite.description}
                   placeholder="A short description..."
-                  maxLength="160"
+                  maxLength="150"
                   onChange={handleFormChange}
                 />
 
                 </div>
 
-                <div className="tech-wrapper">
-                  <label htmlFor={"technologies-" + id} className="text-xl">Tech Stack:</label>
+                <div className="tech-container">
+                  <h2 className="text-xl">Tech Stack:</h2>
 
-                  <div className="ceckbox-wrapper">
+                  <div className="checkbox-wrapper">
 
                     {websiteTech.map((tech) => (
                       <div key={`tech-${tech.id}`} className="tech-stack">
@@ -161,14 +171,16 @@ const PublishPage = () => {
                         checked={newWebsite.technologiesOther}
                         onChange={handleFormChange}
                       />
-                    <label htmlFor="tech-other">Other</label>
+                      <label htmlFor="tech-other">Other</label>
 
                     </div>
 
                     {newWebsite.technologiesOther && (
                       <>
                       <div className="other-input">
-                        <label htmlFor="technologies-other" className="text-xl">Add custom tech</label>
+                        <label htmlFor="technologies-other" className="text-xl">
+                          Add custom tech
+                        </label>
                         <input 
                           type="text" 
                           id="technologies-other"
@@ -186,10 +198,10 @@ const PublishPage = () => {
 
                 </div>
 
-                <div className="categories-wrapper">
-                  <label htmlFor={"categories-" + id} className="text-xl">Categories:</label>
+                <div className="categories-container">
+                  <h2 className="text-xl">Categories:</h2>
 
-                  <div className="ceckbox-wrapper">
+                  <div className="checkbox-wrapper">
 
                     {websiteCategories.map((category) => (
                       <div key={`category-${category.id}`} className="categories-stack">
@@ -241,27 +253,55 @@ const PublishPage = () => {
                 <button type="submit" className="bg-gray-200 p-2 rounded">Submit</button>
 
               </form>
-          </div>
 
 
         </div>
         
         <div className="preview-card-container">
 
-          <div className='preview-card flex flex-col w-96 h-auto max-h-[550px] min-h-[550px] bg-gray-100 rounded-xl justify-self-center p-2'>
+          <div className='preview-card flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-100 rounded-xl justify-self-center p-2'>
             <div className='card-image bg-gray-300'>
+              {newWebsite.url ? (
                 <iframe src={newWebsite.url.startsWith("http://") || newWebsite.url.startsWith("https://") ? newWebsite.url : `https://${newWebsite.url}` }></iframe>
+              ) : (
+                <img src="/src/assets/placeholder-image.png" alt="placeholder-img" className="w-full h-[350px]"/>
+              )
+              
+            }
             </div>
             <div className="card-link text-center text-blue-500 text-base p-2 block">
-                <a href={newWebsite.url}>{newWebsite.url}</a>
+              {newWebsite.url ? (
+                <a href={newWebsite.url} target="_blank">{newWebsite.url}</a>
+              ) : (
+                <p>www.yourwebsite.com</p>
+              )
+            
+            }
             </div>
-            <p className='card-description flex items-center p-2 text-sm flex-1'>
-                {newWebsite.description}
-            </p>
-            <div className='tech-stack flex p-2 gap-2'>
-                {newWebsite.technologies.map((tech, index) => (
+            {newWebsite.description ? (
+              <p className='card-description p-2 text-sm flex-1'>
+                  {newWebsite.description}
+              </p>
+            ) : (
+              <p className='card-description p-2 text-sm flex-1'>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio eveniet eaque nihil eligendi doloribus autem dolor excepturi aperiam deserunt consequuntur.
+              </p>
+            )
+          }
+            <div className='flex flex-wrap w-full p-2 gap-2'>
+              {newWebsite.technologies.length > 0 ? (
+                newWebsite.technologies.map((tech, index) => (
                     <span className="tech-tag" key={index}>{tech}</span>
-                ))}
+                ))
+              ) : (
+                <>
+                  <span className="tech-tag">Lorem</span>
+                  <span className="tech-tag">Ipsum</span>
+                  <span className="tech-tag">Dolor</span>
+                </>
+              )
+            
+            }
             </div>
             <div className="flex justify-end items-center p-2">
                 <p className='published-date text-xs'>Published: Month day, year </p>
