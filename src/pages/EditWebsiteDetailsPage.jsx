@@ -121,8 +121,13 @@ const EditWebsiteDetailsPage = () => {
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
 
-    // const techArr = editedWebsite.technologiesOther.split(",")
-    // console.log(techArr)
+    const otherTechArr = editedWebsite.technologiesOtherText.split(",")
+    .map((tech) => tech.trim())
+    .filter((tech) => tech !== "")
+
+    const otherCategoryArr = editedWebsite.categoriesOtherText.split(",")
+    .map((category) => category.trim())
+    .filter((category) => category !== "")
 
     const currentDate = new Date();
     const publishDate = currentDate.toLocaleDateString("en-US", {
@@ -131,24 +136,31 @@ const EditWebsiteDetailsPage = () => {
       year: "numeric",
     });
 
+  
+    const websiteUrl = 
+      editedWebsite.url.startsWith("http://") ||
+      editedWebsite.url.startsWith("https://")
+        ? editedWebsite.url
+        : `https://${editedWebsite.url}`
+
     const editedWebsiteData = {
-      url: editedWebsite.url,
+      url: websiteUrl,
       description: editedWebsite.description,
-      technologies: editedWebsite.technologies,
-      categories: editedWebsite.categories,
+      technologies: [...editedWebsite.technologies, ...otherTechArr],
+      categories: [...editedWebsite.categories, ...otherCategoryArr],
       publishDate: publishDate,
     };
 
     console.log(editedWebsiteData);
 
-    // try {
-    //   axios.put(`${API_URL}/websites/${websiteId}`, editedWebsiteData)
-    //   .then((response) => {
-    //     navigate(`/websites/${websiteId}`)
-    //   })
-    // } catch (error) {
-    //   console.error("Put request was unsuccesful.", error)
-    // }
+    try {
+      axios.put(`${API_URL}/websites/${websiteId}`, editedWebsiteData)
+      .then((response) => {
+        navigate(`/websites/${websiteId}`)
+      })
+    } catch (error) {
+      console.error("Put request was unsuccesful.", error)
+    }
   };
 
   return (
@@ -255,7 +267,7 @@ const EditWebsiteDetailsPage = () => {
                   <div key={category.id} className="categories-stack">
                     <input
                       type="checkbox"
-                      id={`categories=${category.id}`}
+                      id={`categories-${category.id}`}
                       name="categories"
                       value={category.name}
                       checked={editedWebsite.categories.includes(category.name)}
