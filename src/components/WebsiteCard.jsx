@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom"
 
 const WebsiteCard = ({website}) => {
   return (
-    <div className="card flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-100 rounded-xl justify-self-center p-2">
+    <div className="card flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-200 rounded-xl justify-self-center p-2">
         <div className="card-image">
-            <iframe src={website.url}></iframe>
+            <iframe src={website.url} loading="lazy"></iframe>
         </div>
         <div className="card-link text-center text-blue-500 text-base p-2 block">
-            <a href={website.url}>{website.url}</a>
+            <a href={website.url} target="_blank">{website.url}</a>
         </div>
         <p className="card-description p-2 text-sm flex-1">
             {website.description}
