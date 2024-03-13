@@ -74,10 +74,10 @@ const WebsiteDetailsPage = () => {
     <div className=" flex justify-center items-center gap-8 w-[250px] h-auto">
       
       <NavLink to={`/websites/edit/${websiteId}`}>
-        <button className="bg-blue-600 text-blue-200 rounded-2xl px-3 py-1">Edit</button>
+        <button className="bg-blue-600 text-blue-50 rounded-2xl px-3 py-1">Edit</button>
       </NavLink>
 
-      <button className="bg-red-600 text-blue-200 rounded-2xl px-3 py-1" onClick={deleteProject}>Delete</button>
+      <button className="bg-red-600 text-blue-50 rounded-2xl px-3 py-1" onClick={deleteProject}>Delete</button>
 
     </div>
 
