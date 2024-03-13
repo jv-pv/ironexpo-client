@@ -3,12 +3,14 @@ import IronHackLogo from "/src/assets/ironhack-logo.jpg";
 
 const Navbar = ({ websiteId }) => {
   const location = useLocation();
-  const isWebsitesPage = location.pathname === "/websites";
   const isHomePage = location.pathname === "/"
-  const isWebsiteDetailsPage = location.pathname === `/websites/${websiteId}`;
+  const isWebsitesPage = location.pathname === "/websites";
+  const isPublishPage = location.pathname === "/websites/publish"
+  const isWebsiteDetailsPage = location.pathname.startsWith("/websites/") && !isPublishPage
+  const isEditWebsiteDetailsPage = location.pathname.startsWith("/websites/edit")
 
   return (
-    <header className="bg-gray-100 h-16 w-full">
+    <header className="h-16 w-full bg-blue-900">
       <div className="flex items-center w[90%] mx-auto h-full px-4">
         <NavLink to="/">
           <div className="flex items-center">
@@ -17,7 +19,7 @@ const Navbar = ({ websiteId }) => {
               alt="IronHack Logo"
               className="w-12 rounded-full"
             ></img>
-            <h1 className="ml-3 text-2xl font-semibold text-blue-500">Expo</h1>
+            <h1 className="ml-3 text-2xl font-semibold text-blue-50">Expo</h1>
           </div>
         </NavLink>
 
@@ -30,13 +32,17 @@ const Navbar = ({ websiteId }) => {
               </li>
             </NavLink>
             )}
+            {!isPublishPage && (
               <NavLink to="/websites/publish">
                 <li className="block bg-blue-600 text-blue-50 rounded-2xl px-2 py-1">
                   Publish
                 </li>
               </NavLink>
+            )
 
-            {!isWebsitesPage && (
+            }  
+
+            {(isPublishPage || isWebsiteDetailsPage || isEditWebsiteDetailsPage ) && (
 
             <NavLink to={`/websites`}>
               <li className="block bg-blue-600 text-blue-50 rounded-2xl px-3 py-1">
