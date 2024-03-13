@@ -66,13 +66,13 @@ const PublishPage = () => {
     e.preventDefault();
 
     // Create array from custom technologies
-    const techArr = newWebsite.technologiesOtherText
+    const otherTechArr = newWebsite.technologiesOtherText
       .split(",")
       .map((tech) => tech.trim())
       .filter((tech) => tech !== "");
 
     // Create array from custom categories
-    const categoryArr = newWebsite.categoriesOtherText
+    const otherCategoryArr = newWebsite.categoriesOtherText
       .split(",")
       .map((category) => category.trim())
       .filter((category) => category !== "");
@@ -95,8 +95,8 @@ const PublishPage = () => {
     const websiteData = {
       url: websiteUrl,
       description: newWebsite.description,
-      technologies: [...newWebsite.technologies, ...techArr],
-      categories: [...newWebsite.categories, ...categoryArr],
+      technologies: [...newWebsite.technologies, ...otherTechArr],
+      categories: [...newWebsite.categories, ...otherCategoryArr],
       publishDate: publishDate,
     };
 
