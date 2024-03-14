@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 
 const WebsiteCard = ({website}) => (
-    <div className="card flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-200 rounded-xl justify-self-center p-2">
+    <div className="flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-200 rounded-xl justify-self-center p-2">
         <div className="card-image">
             <iframe 
                 title={`Preview of ${website.url}`}
