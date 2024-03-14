@@ -77,7 +77,7 @@
     canvas.width = window.innerWidth * window.devicePixelRatio;
     canvas.height = window.innerHeight * window.devicePixelRatio;
     canvas.style.width = `100%`;
-    canvas.style.height = `100%`;
+    canvas.style.height = `100dvh`;
     particles.forEach((particle) => {
       particle.reset();
     });
