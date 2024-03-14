@@ -75,7 +75,7 @@ const WebsiteDetailsPage = () => {
     <div className=" flex justify-end items-center gap-8 w-[250px] h-auto">
       
       <NavLink to={`/websites/edit/${websiteId}`}>
-        <button className="bg-gray-700 text-blue-50 rounded-full w-12 h-12 hover:scale-110 transition-transform flex items-center justify-center"><img src="/public/page-edit.svg" alt="edit-button" /></button>
+        <button className="bg-gray-700 text-blue-50 rounded-full w-12 h-12 hover:scale-110 transition-transform flex items-center justify-center"><img src="/page-edit.svg" alt="edit-button" /></button>
       </NavLink>
 
       <button className="bg-yellow-600 text-blue-50 rounded-full w-12 h-12 hover:scale-110 transition-transform" onClick={deleteProject}>X</button>

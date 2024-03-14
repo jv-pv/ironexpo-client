@@ -36,6 +36,9 @@ const PublishPageForm = ({
         />
       </div>
 
+      <div className="flex flex-col justify-evenly w-full h-[400px]">
+
+
       <div className="tech-container">
         <h2 className="text-xl">Tech Stack:</h2>
 
@@ -133,6 +136,9 @@ const PublishPageForm = ({
           )}
         </div>
       </div>
+
+      </div>
+
 
       <button type="submit" className="bg-blue-600 text-blue-50 p-2 rounded">
         Submit
