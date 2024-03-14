@@ -1,13 +1,16 @@
 import { NavLink } from "react-router-dom"
 
-const WebsiteCard = ({website}) => {
-  return (
+const WebsiteCard = ({website}) => (
     <div className="card flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-200 rounded-xl justify-self-center p-2">
         <div className="card-image">
-            <iframe src={website.url} loading="lazy"></iframe>
+            <iframe 
+                title={`Preview of ${website.url}`}
+                src={website.url} 
+                loading="lazy"
+            />
         </div>
         <div className="card-link text-center text-blue-500 text-base p-2 block">
-            <a href={website.url} target="_blank">{website.url}</a>
+            <a rel="noopener noreferrer" href={website.url} target="_blank">{website.url}</a>
         </div>
         <p className="card-description p-2 text-sm flex-1">
             {website.description}
@@ -27,7 +30,6 @@ const WebsiteCard = ({website}) => {
         </div>
     </div>
   )
-}
 
 export default WebsiteCard
 

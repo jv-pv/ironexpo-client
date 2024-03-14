@@ -82,7 +82,7 @@
       particle.reset();
     });
     let w = window.innerWidth;
-    let particleTotal = w > 1000 ? 350 : 150;
+    let particleTotal = w > 1000 ? 50 : 150;
 
     for (let i = 0; i < particleTotal; i++) {
       let particle = new Particle();

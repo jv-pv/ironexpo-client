@@ -5,6 +5,7 @@ import WebsitesPage from './pages/WebsitesPage'
 import PublishPage from './pages/PublishPage'
 import WebsiteDetailsPage from './pages/WebsiteDetailsPage'
 import EditWebsiteDetailsPage from './pages/EditWebsiteDetailsPage.jsx'
+// import Footer from './components/Footer.jsx'
 
 const App = () => {
   return (
@@ -20,7 +21,7 @@ const App = () => {
         <Route path='/websites/edit/:websiteId' element={<EditWebsiteDetailsPage />} />
 
       </Routes>
-      
+      {/* <Footer/> */}
     </div>
   )
 }

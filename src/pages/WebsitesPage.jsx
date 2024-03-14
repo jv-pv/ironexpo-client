@@ -17,7 +17,7 @@ const WebsitesPage = () => {
     <Navbar/>
     <div className='flex flex-col w-full mx-auto max-w-[1600px] h-full flex-1 mb-6'>
         <div className='p-2 my-5'>
-            <h2 className='text-7xl text-blue-50 mx-4 my-8 text-center'>Explore Published Sites</h2>
+            <h2 className='font-heading text-6xl text-blue-50 mx-4 my-8 text-center'>Explore Published Sites</h2>
         </div>
 
 
