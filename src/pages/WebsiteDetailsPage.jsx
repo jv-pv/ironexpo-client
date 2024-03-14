@@ -27,13 +27,12 @@ const WebsiteDetailsPage = () => {
   const deleteProject = () => {
     axios.delete(`${API_URL}/websites/${websiteId}`)
     .then((response) => {
-      navigate("/websites")
+      navigate("/")
     })
   }
 
   return (
     <>
-    <Navbar websiteId={websiteId}/>
     {selectedWebsite ? (
     <div className="flex flex-col justify-center gap-10 items-center w-full h-full flex-1 p-4">
     <div className="container">
@@ -60,26 +59,30 @@ const WebsiteDetailsPage = () => {
 
     </div>
 
-    <div className="w-full max-w-[750px] h-full text-blue-50" style={{textAlign: selectedWebsite.description.length > 100 ? "left" : "center"}}>
+    <div className="w-full max-w-[800px] h-full text-blue-50">
       {selectedWebsite.description}
     </div>
 
-    <div className="flex items-center justify-center gap-4 w-full">
+    <div className="flex items-center justify-start gap-4 w-full max-w-[800px]">
       {selectedWebsite.technologies.map((site, index) => (
          <span className="tech-tag" key={index}>{site}</span>
       ))
       }
     </div>
 
-    <div className=" flex justify-center items-center gap-8 w-[250px] h-auto">
+    <div className="text-white w-[800px] flex items-center justify-between">
+      <p>Published: {selectedWebsite.publishDate}</p>
+    <div className=" flex justify-end items-center gap-8 w-[250px] h-auto">
       
       <NavLink to={`/websites/edit/${websiteId}`}>
-        <button className="bg-blue-600 text-blue-50 rounded-2xl px-3 py-1">Edit</button>
+        <button className="bg-gray-700 text-blue-50 rounded-full w-12 h-12 hover:scale-110 transition-transform flex items-center justify-center"><img src="/public/page-edit.svg" alt="edit-button" /></button>
       </NavLink>
 
-      <button className="bg-red-600 text-blue-50 rounded-2xl px-3 py-1" onClick={deleteProject}>Delete</button>
+      <button className="bg-yellow-600 text-blue-50 rounded-full w-12 h-12 hover:scale-110 transition-transform" onClick={deleteProject}>X</button>
 
     </div>
+    </div>
+
 
   </div>
   ) : (
