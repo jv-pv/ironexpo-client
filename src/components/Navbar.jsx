@@ -1,63 +1,34 @@
 import { NavLink, useLocation } from "react-router-dom";
-import IronHackLogo from "/src/assets/ironhack-logo.jpg";
 
 const Navbar = ({ websiteId }) => {
   const location = useLocation();
-  const isHomePage = location.pathname === "/"
+  const isHomePage = location.pathname === "/";
   const isWebsitesPage = location.pathname === "/websites";
-  const isPublishPage = location.pathname === "/websites/publish"
-  const isWebsiteDetailsPage = location.pathname.startsWith("/websites/") && !isPublishPage
-  const isEditWebsiteDetailsPage = location.pathname.startsWith("/websites/edit")
+  const isPublishPage = location.pathname === "/websites/publish";
+  const isWebsiteDetailsPage =
+    location.pathname.startsWith("/websites/") && !isPublishPage;
+  const isEditWebsiteDetailsPage = location.pathname.startsWith("/websites/edit/");
 
   return (
-    <header className="h-16 w-full bg-blue-900">
-      <div className="flex items-center w[90%] mx-auto h-full px-4">
-        <NavLink to="/">
-          <div className="flex items-center">
-            <img
-              src={IronHackLogo}
-              alt="IronHack Logo"
-              className="w-12 rounded-full"
-            ></img>
-            <h1 className="ml-3 text-2xl font-semibold text-blue-50">Expo</h1>
+    <>
+      {isWebsiteDetailsPage && !isEditWebsiteDetailsPage && (
+        <NavLink to="/" className="group">
+          <div className="nav-btn fixed top-32 left-10 rounded-full bg-red-500 h-32 w-32 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-300 z-50">
+            <span className="animate-spin-slow">🔙</span>
           </div>
         </NavLink>
+      )}
 
-        <nav className="flex items-center justify-end w-full mx-w-[400px] flex-[2]">
-          <ul className="flex justify-end gap-4 w-4">
-            {!isHomePage && (
-            <NavLink to="/">
-              <li className="block bg-blue-600 text-blue-50 rounded-2xl px-3 py-1">
-                Home
-              </li>
-            </NavLink>
-            )}
-            {!isPublishPage && (
-              <NavLink to="/websites/publish">
-                <li className="block bg-blue-600 text-blue-50 rounded-2xl px-2 py-1">
-                  Publish
-                </li>
-              </NavLink>
-            )
-
-            }  
-
-            {(isPublishPage || isWebsiteDetailsPage || isEditWebsiteDetailsPage ) && (
-
-            <NavLink to={`/websites`}>
-              <li className="block bg-blue-600 text-blue-50 rounded-2xl px-3 py-1">
-                Explore
-              </li>
-            </NavLink>
-
-            )}
-          </ul>
-        </nav>
-      </div>
-    </header>
+      {!isPublishPage && !isEditWebsiteDetailsPage && (
+        <NavLink to="/websites/publish" className="group">
+          <div className="nav-btn fixed top-10 right-10 rounded-full bg-lime-500 h-32 w-32 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-300 z-50 mix-blend-difference">
+            <span className="animate-spin-slow group-hover:opacity-0 transition-opacity duration-300">🚀</span>
+            <span className="absolute text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">Publish</span>
+          </div>
+        </NavLink>
+      )}
+    </>
   );
 };
 
 export default Navbar;
-
-// w-[95%] max-w-[112rem]
