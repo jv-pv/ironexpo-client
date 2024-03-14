@@ -7,7 +7,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Poppins"]
+        ironFont: ["ironFont", "sans-serif "],
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       }
     },
   },
