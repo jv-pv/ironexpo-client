@@ -5,12 +5,13 @@ import WebsitesPage from './pages/WebsitesPage'
 import PublishPage from './pages/PublishPage'
 import WebsiteDetailsPage from './pages/WebsiteDetailsPage'
 import EditWebsiteDetailsPage from './pages/EditWebsiteDetailsPage.jsx'
-// import Footer from './components/Footer.jsx'
+import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 
 const App = () => {
   return (
-    <div className="flex flex-col bg-blue-950 w-full min-h-dvh">
-
+    <div className=" font-ironFont flex flex-col bg-black w-full min-h-dvh relative">
+      <Navbar/>
       <Routes>
 
         
