@@ -15,7 +15,7 @@ const PublishPreviewCard = ({newWebsite}) => (
           ></iframe>
         ) : (
           <img
-            src="/src/assets/placeholder-image.png"
+            src="/placeholder-image.png"
             alt="placeholder-img"
             className="w-full h-[350px] object-contain"
           />

@@ -30,13 +30,12 @@ const PublishPageForm = ({
           name="description"
           value={newWebsite.description}
           placeholder="A short description..."
-          maxLength="150"
+          maxLength="200"
           onChange={handleFormChange}
           required
         />
       </div>
 
-      <div className="flex flex-col justify-evenly w-full h-[400px]">
 
 
       <div className="tech-container">
@@ -70,7 +69,7 @@ const PublishPageForm = ({
           {newWebsite.technologiesOther && (
             <>
               <div className="other-input">
-                <label htmlFor="technologies-other" className="text-xl">
+                <label htmlFor="technologies-other">
                   Add custom tech
                 </label>
                 <input
@@ -137,12 +136,11 @@ const PublishPageForm = ({
         </div>
       </div>
 
+        <button type="submit">
+      <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse">
+          Publish 🔥
       </div>
-
-
-      <button type="submit" className="bg-blue-600 text-blue-50 p-2 rounded">
-        Submit
-      </button>
+        </button>
     </form>
   </div>
 );

@@ -36,9 +36,9 @@ const EditWebsiteDetailsPage = () => {
     "JavaScript",
     "TypeScript",
     "React",
-    "NextJS",
+    "Next.js",
     "WebGL",
-    "ThreeJS",
+    "Three.js",
   ];
   let categories = [
     "Portfolio",

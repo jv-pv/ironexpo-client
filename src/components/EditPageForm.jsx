@@ -28,7 +28,7 @@ const EditPageForm = ({
           id="description"
           name="description"
           value={editedWebsite.description}
-          maxLength="150"
+          maxLength="200"
           onChange={handleFormChange}
         />
       </div>
@@ -81,7 +81,7 @@ const EditPageForm = ({
 
           {editedWebsite.technologiesOther && (
             <div className="other-input">
-              <label htmlFor="technologies-other" className="text-xl">
+              <label htmlFor="technologies-other">
                 Add custom tech
               </label>
               <input
@@ -164,9 +164,11 @@ const EditPageForm = ({
         </div>
       </div>
 
-      <button type="submit" className="bg-gray-500 text-blue-50 p-2 rounded">
-        Submit
-      </button>
+      <button type="submit">
+      <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse">
+          Publish 🔥
+      </div>
+        </button>
     </form>
   </div>
 );
