@@ -133,7 +133,7 @@ const PublishPageForm = ({
       </div>
 
       <button type="submit" className="group">
-        <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse group-hover:animate-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
+        <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 transition-all duration-500 ease-in-out animate-pulse group-hover:animate-none group-hover:w-48 group-hover:h-16 group-hover:rounded-full group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
           Publish 🔥
         </div>
       </button>
