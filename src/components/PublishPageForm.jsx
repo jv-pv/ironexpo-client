@@ -30,7 +30,7 @@ const PublishPageForm = ({
           name="description"
           value={newWebsite.description}
           placeholder="A short description..."
-          maxLength="200"
+          maxLength="450"
           onChange={handleFormChange}
           required
         />

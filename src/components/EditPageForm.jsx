@@ -28,7 +28,7 @@ const EditPageForm = ({
           id="description"
           name="description"
           value={editedWebsite.description}
-          maxLength="200"
+          maxLength="450"
           onChange={handleFormChange}
         />
       </div>
