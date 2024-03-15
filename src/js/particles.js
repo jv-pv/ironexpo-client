@@ -1,7 +1,8 @@
 // By wrapping the entire code inside an IIFE, we create a separate scope for the variables and functions defined within it. This prevents them from polluting the global scope and avoids naming conflicts with other scripts or variables.
 // The IIFE also ensures that the code is executed only once, even if the script is loaded multiple times.
 
-(function () { // IIFE Immediately Invoked Function Expression
+(function () {
+  // IIFE Immediately Invoked Function Expression
   console.log("Particle JS running!");
   // Before executing the rest of the code, we check if the canvas element exists in the DOM using ===>
   let canvas = document.getElementById("canvas");
@@ -21,13 +22,13 @@
         y: Math.random() * canvas.height,
       };
       this.speedY =
-        Math.random() > 0.5
-          ? Math.random() * randoSpeed * -1
-          : Math.random() * randoSpeed;
-      this.speedX =
-        Math.random() > 0.5
-          ? Math.random() * randoSpeed * -1
-          : Math.random() * randoSpeed;
+      Math.random() > 0.5
+        ? (Math.random() * randoSpeed) / 4 * -1
+        : (Math.random() * randoSpeed) / 4;
+    this.speedX =
+      Math.random() > 0.5
+        ? (Math.random() * randoSpeed) / 4 * -1
+        : (Math.random() * randoSpeed) / 4;
     }
 
     reset() {
@@ -57,7 +58,14 @@
           Math.abs(x - particles[i].coordinates.x) <= 200 &&
           Math.abs(y - particles[i].coordinates.y) <= 150
         ) {
-          ctx.strokeStyle = `#456dad`;
+          // Generate a random color
+          let r = Math.floor(Math.random() * 256);
+          let g = Math.floor(Math.random() * 256);
+          let b = Math.floor(Math.random() * 256);
+          let color = `rgb(${r}, ${g}, ${b})`;
+
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 2
 
           ctx.beginPath();
           ctx.moveTo(x, y);
@@ -82,7 +90,7 @@
       particle.reset();
     });
     let w = window.innerWidth;
-    let particleTotal = w > 1000 ? 50 : 150;
+    let particleTotal = w > 1000 ? 75 : 50;
 
     for (let i = 0; i < particleTotal; i++) {
       let particle = new Particle();

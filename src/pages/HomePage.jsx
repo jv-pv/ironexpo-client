@@ -17,7 +17,7 @@ const HomePage = () => {
 
   return (
     <>
-    {/* <canvas id="canvas"></canvas> */}
+    <canvas id="canvas"></canvas>
       <Header/>
       <WebsitesPage/>
       <Footer/>
