@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 const WebsiteCardFull = ({website}) => (
 
     <NavLink to={`/websites/${website.id}`}>
-        <div className="aspect-square w-full hover:scale-75 transition-transform duration-300">
+        <div className="aspect-square w-full hover:scale-105 transition-transform duration-300">
 
         <iframe 
             title={`Preview of ${website.url}`}

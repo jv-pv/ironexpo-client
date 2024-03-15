@@ -10,7 +10,7 @@ const PublishPageForm = ({
     <form onSubmit={handlePublishFormSubmit}>
       <div className="text-input-wrapper">
         <label htmlFor={"url-" + id} className="text-xl">
-          Website URL:
+          Website URL
         </label>
         <input
           type="text"
@@ -23,7 +23,7 @@ const PublishPageForm = ({
         />
 
         <label htmlFor={"url-" + id} className="text-xl">
-          Dascription:
+          Dascription
         </label>
         <textarea
           id={"description" + id}
@@ -36,10 +36,8 @@ const PublishPageForm = ({
         />
       </div>
 
-
-
       <div className="tech-container">
-        <h2 className="text-xl">Tech Stack:</h2>
+        <h2 className="text-xl">Tech Stack</h2>
 
         <div className="checkbox-wrapper">
           {websiteTech.map((tech) => (
@@ -69,9 +67,7 @@ const PublishPageForm = ({
           {newWebsite.technologiesOther && (
             <>
               <div className="other-input">
-                <label htmlFor="technologies-other">
-                  Add custom tech
-                </label>
+                <label htmlFor="technologies-other">Add custom tech</label>
                 <input
                   type="text"
                   id="technologies-other"
@@ -87,7 +83,7 @@ const PublishPageForm = ({
       </div>
 
       <div className="categories-container">
-        <h2 className="text-xl">Categories:</h2>
+        <h2 className="text-xl">Categories</h2>
 
         <div className="checkbox-wrapper">
           {websiteCategories.map((category) => (
@@ -136,11 +132,11 @@ const PublishPageForm = ({
         </div>
       </div>
 
-        <button type="submit">
-      <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse">
+      <button type="submit" className="group">
+        <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse group-hover:animate-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
           Publish 🔥
-      </div>
-        </button>
+        </div>
+      </button>
     </form>
   </div>
 );

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import WebsitesPage from "./WebsitesPage";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const HomePage = () => {
     {/* <canvas id="canvas"></canvas> */}
       <Header/>
       <WebsitesPage/>
+      <Footer/>
     </>
   );
 };

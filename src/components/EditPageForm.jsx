@@ -11,7 +11,7 @@ const EditPageForm = ({
     <form onSubmit={handleEditFormSubmit}>
       <div className="text-input-wrapper">
         <label htmlFor="url" className="text-xl">
-          Website URL:
+          Website URL
         </label>
         <input
           type="text"
@@ -22,7 +22,7 @@ const EditPageForm = ({
         />
 
         <label htmlFor="description" className="text-xl">
-          Description:
+          Description
         </label>
         <textarea
           id="description"
@@ -35,7 +35,7 @@ const EditPageForm = ({
 
         
       <div className="tech-container">
-        <h2 className="text-xl">Tech Stack:</h2>
+        <h2 className="text-xl">Tech Stack</h2>
 
         <div className="checkbox-wrapper">
           {websiteTech.map((tech) => (
@@ -98,7 +98,7 @@ const EditPageForm = ({
       </div>
 
       <div className="categories-container">
-        <h2 className="text-xl">Categories:</h2>
+        <h2 className="text-xl">Categories</h2>
 
         <div className="checkbox-wrapper">
           {websiteCategories.map((category) => (
@@ -164,8 +164,8 @@ const EditPageForm = ({
         </div>
       </div>
 
-      <button type="submit">
-      <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse">
+      <button type="submit" className="group">
+        <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse group-hover:animate-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
           Edit 🛠️
       </div>
         </button>

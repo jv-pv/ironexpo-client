@@ -1,9 +1,13 @@
 
 const Footer = () => {
   return (
-    <div className="flex items-center justify-between px-2 w-full">
-        <p className="text-blue-50">Made by John</p>
-        <p className="text-blue-50">IronHack 2024</p>
+    <div className="flex items-center justify-between px-3 w-full h-8">
+        <p className="text-blue-50">
+          <span className="text-white">John</span> ✷ <span className="text-lime-400">Pieri</span>
+        </p>
+        <p className="text-blue-50">
+          <span className="text-blue-400">IronHack</span> ✷ <span className="text-">2024</span>
+        </p>
     </div>
   )
 }
