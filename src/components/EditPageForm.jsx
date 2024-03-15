@@ -166,7 +166,7 @@ const EditPageForm = ({
 
       <button type="submit">
       <div className="submit-btn absolute z-20 bottom-2 left-4 text-base text-black font-semibold flex items-center justify-center rounded-full bg-lime-500 w-24 h-24 animate-pulse">
-          Publish 🔥
+          Edit 🛠️
       </div>
         </button>
     </form>
