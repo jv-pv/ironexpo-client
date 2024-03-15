@@ -11,7 +11,7 @@ const PublishPreviewCard = ({ newWebsite }) => (
 
         <div className="url-bar">
           {newWebsite.url ? (
-            <input type="text" defaultValue={newWebsite.url} readOnly />
+            <input type="text" value={newWebsite.url} readOnly />
           ) : (
             <input type="text" defaultValue="www.yourwebsite.com" readOnly />
           )}
