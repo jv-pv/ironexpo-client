@@ -11,7 +11,7 @@ const EditPagePreviewCard = ({editedWebsite}) => (
 
         <div className="url-bar">
           {editedWebsite.url ? (
-            <input type="text" defaultValue={editedWebsite.url} readOnly />
+            <input type="text" value={editedWebsite.url} readOnly />
           ) : (
             <input type="text" defaultValue="www.yourwebsite.com" readOnly />
           )}
