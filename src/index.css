@@ -60,7 +60,7 @@ header {
   background-color: rgb(181, 181, 181);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(206, 206, 206, 0.5);
+  box-shadow: 0 0 8px rgba(206, 206, 206, 0.5);
 
 }
 
@@ -73,7 +73,7 @@ header {
   background-color: rgb(181, 181, 181);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(206, 206, 206, 0.5);
+  box-shadow: 0 0 8px rgba(206, 206, 206, 0.5);
 }
 
 .browser-nav {
