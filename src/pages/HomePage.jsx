@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 const HomePage = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "./src/js/particles.js";
+    script.src = "/particles.js";
     script.async = true;
     document.body.appendChild(script);
 
