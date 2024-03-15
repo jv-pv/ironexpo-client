@@ -47,7 +47,9 @@ const WebsiteDetailsPage = () => {
         </div>
 
         <div className="url-bar">
-          <input type="text" defaultValue={selectedWebsite.url} readOnly/>
+          <a href={selectedWebsite.url} target="_blank" className="url-bar">
+            <input type="text" defaultValue={selectedWebsite.url} className="cursor-pointer" readOnly/>
+          </a>
         </div>
 
 
