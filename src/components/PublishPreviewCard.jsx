@@ -30,11 +30,11 @@ const PublishPreviewCard = ({ newWebsite }) => (
       </div>
     </div>
     {newWebsite.description ? (
-      <div className="w-full max-w-[800px] h-full text-blue-50">
+      <div className="w-full max-description text-blue-50">
         {newWebsite.description}
       </div>
     ) : (
-      <div className="w-full max-w-[800px] h-full text-blue-50">
+      <div className="w-full max-description text-blue-50">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem culpa
         quia ad, nam cumque aliquid perferendis, harum, ipsam officiis
         reiciendis molestias sint. Placeat rem doloremque soluta.

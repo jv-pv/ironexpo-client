@@ -354,6 +354,10 @@ input[type="checkbox"]:checked::before {
     border-radius: 10px;
   }
 
+  .max-description {
+    max-width: fit-content;
+  }
+
 }
 
 /* Home page */
@@ -368,7 +372,7 @@ input[type="checkbox"]:checked::before {
 }
 
 /* Remove scroll bar caused by canvas */
-#canvas {
+/* #canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -416,4 +420,4 @@ input[type="checkbox"]:checked::before {
 .hero-subtitle p {
   font-size: 1.1rem;
   margin-right: 1rem;
-}
+} */
