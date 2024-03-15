@@ -103,7 +103,7 @@ const PublishPage = () => {
 
     try {
       axios.post(`${API_URL}/websites`, websiteData).then((response) => {
-        navigate("/websites");
+        navigate("/");
       });
     } catch (error) {
       console.error("Post request was unsuccesful.", error);

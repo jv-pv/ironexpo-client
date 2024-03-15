@@ -25,6 +25,7 @@ const EditWebsiteDetailsPage = () => {
     categories: [],
     categoriesOther: false,
     categoriesOtherText: "",
+    publishDate: ""
   });
 
   const [extraTech, setExtraTech] = useState([]);
@@ -69,6 +70,7 @@ const EditWebsiteDetailsPage = () => {
         categories: response.data.categories,
         categoriesOther: false,
         categoriesOtherText: "",
+        publishDate: response.data.publishDate
       });
       let techExtras = response.data.technologies.filter(
         (tech) => technologies.indexOf(tech) === -1

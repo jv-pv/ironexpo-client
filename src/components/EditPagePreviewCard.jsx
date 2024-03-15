@@ -1,67 +1,64 @@
 
 const EditPagePreviewCard = ({editedWebsite}) => (
-    <div className="preview-card-container">
-          <div className="preview-card flex flex-col w-96 h-auto max-h-[580px] min-h-[580px] bg-gray-200 rounded-xl justify-self-center p-2">
-            <div className="card-image bg-gray-300">
-              {editedWebsite.url ? (
-                <iframe
-                  src={
-                    editedWebsite.url.startsWith("http://") ||
-                    editedWebsite.url.startsWith("https://")
-                      ? editedWebsite.url
-                      : `https://${editedWebsite.url}`
-                  }
-                ></iframe>
-              ) : (
-                <img
-                  src="/placeholder-image.png"
-                  alt="placeholder-img"
-                  className="w-full h-[350px] object-contain"
-                />
-              )}
-            </div>
-            <div className="card-link text-center text-blue-500 text-base p-2 block">
-              {editedWebsite.url ? (
-                <a href={editedWebsite.url} target="_blank">
-                  {editedWebsite.url}
-                </a>
-              ) : (
-                <p>www.yourwebsite.com</p>
-              )}
-            </div>
-            {editedWebsite.description ? (
-              <p className="card-description p-2 text-sm flex-1">
-                {editedWebsite.description}
-              </p>
-            ) : (
-              <p className="card-description p-2 text-sm flex-1">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-                eveniet eaque nihil eligendi doloribus autem dolor excepturi
-                aperiam deserunt consequuntur.
-              </p>
-            )}
-            <div className="flex flex-wrap w-full p-2 gap-2">
-              {editedWebsite.technologies.length > 0 ? (
-                editedWebsite.technologies.map((tech, index) => (
-                  <span className="tech-tag" key={index}>
-                    {tech}
-                  </span>
-                ))
-              ) : (
-                <>
-                  <span className="tech-tag">Lorem</span>
-                  <span className="tech-tag">Ipsum</span>
-                  <span className="tech-tag">Dolor</span>
-                </>
-              )}
-            </div>
-            <div className="flex justify-start items-center p-2">
-              <p className="text-xs">
-                Published: Month day, year{" "}
-              </p>
-            </div>
-          </div>
+  <div className="col-start-6 col-end-12 self-center flex flex-col justify-start gap-8">
+    <div className="preview-container">
+      <div className="browser-nav">
+        <div className="dots">
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
         </div>
+
+        <div className="url-bar">
+          {editedWebsite.url ? (
+            <input type="text" defaultValue={editedWebsite.url} readOnly />
+          ) : (
+            <input type="text" defaultValue="www.yourwebsite.com" readOnly />
+          )}
+        </div>
+      </div>
+
+      <div className="iframe-container">
+        <iframe
+          src={
+            editedWebsite.url.startsWith("http://") ||
+            editedWebsite.url.startsWith("https://")
+              ? editedWebsite.url
+              : `https://${editedWebsite.url}`
+          }
+        ></iframe>
+      </div>
+    </div>
+    {editedWebsite.description ? (
+      <div className="w-full max-w-[800px] h-full text-blue-50">
+        {editedWebsite.description}
+      </div>
+    ) : (
+      <div className="w-full max-w-[800px] h-full text-blue-50">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem culpa
+        quia ad, nam cumque aliquid perferendis, harum, ipsam officiis
+        reiciendis molestias sint. Placeat rem doloremque soluta.
+      </div>
+    )}
+    <div className="flex items-center justify-start gap-4 w-full max-w-[800px]">
+      {editedWebsite.technologies.length > 0 ? (
+        editedWebsite.technologies.map((site, index) => (
+          <span className="tech-tag" key={index}>
+            {site}
+          </span>
+        ))
+      ) : (
+        <>
+          <span className="tech-tag">Lorem</span>
+          <span className="tech-tag">Ipsum</span>
+          <span className="tech-tag">Dolor</span>
+        </>
+      )}
+    </div>
+    <div className="text-white w-[800px] flex items-center justify-between">
+        <p>Published: {editedWebsite.publishDate}</p>
+    </div>
+  </div>
   )
 
 export default EditPagePreviewCard

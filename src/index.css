@@ -55,10 +55,23 @@ header {
   height: 500px;
   max-width: 800px;
   min-width: 300px;
-  background-color: tan;
+  background-color: rgb(181, 181, 181);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(206, 206, 206, 0.5);
+
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  min-width: 300px;
+  background-color: rgb(181, 181, 181);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(206, 206, 206, 0.5);
 }
 
 .browser-nav {
@@ -129,7 +142,7 @@ header {
   grid-row: 1/1;
   width: 100%;
   background-color: rgb(229 231 235);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.2);
 }
 
 .publish-form-container form,
@@ -255,7 +268,8 @@ form textarea {
 
 @media screen and (min-width: 1535px) {
 
-  .publish-form-container form {
+  .publish-form-container form,
+  .edit-form-container form {
     gap: 2rem;
   }
   
@@ -301,6 +315,17 @@ form textarea {
     height: 200px;
   }
 
+  /* Preview Browser */
+
+  .preview-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 725px;
+    min-width: 300px;
+    background-color: rgb(181, 181, 181);
+    border-radius: 10px;
+  }
 
 }
 
