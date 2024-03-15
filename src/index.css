@@ -220,6 +220,7 @@ form textarea {
   margin-left: 1rem;
   display: grid;
   grid-template-columns: 1em auto;
+  align-items: baseline;
   gap: 0.5em;
 }
 
@@ -228,11 +229,16 @@ form textarea {
   margin-left: 1rem;
   display: grid;
   grid-template-columns: 1em auto;
+  align-items: baseline;
   gap: 0.5em;
 }
 
 .categories-stack label {
   white-space: nowrap;
+}
+
+.categories-stack input {
+  margin-top: 10px;
 }
 
 
