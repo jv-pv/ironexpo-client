@@ -109,6 +109,7 @@ header {
   display: flex;
   justify-content: center;
   flex-grow: 1;
+  margin-right: 1.25rem;
 }
 
 .url-bar input {
