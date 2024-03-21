@@ -17,6 +17,3 @@ const WebsiteCardFull = ({website}) => (
   )
 
 export default WebsiteCardFull
-
-
-// ? Keep in that using index as a key can cause problems when editing the card data in the form.
