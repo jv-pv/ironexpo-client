@@ -113,7 +113,6 @@ const PublishPage = () => {
   return (
     <>
       <div className="publish-page-container">
-
         <PublishPageForm
           handlePublishFormSubmit={handlePublishFormSubmit}
           newWebsite={newWebsite}
@@ -123,9 +122,7 @@ const PublishPage = () => {
           id={id}
         />
 
-        <PublishPreviewCard
-          newWebsite={newWebsite}
-        />
+        <PublishPreviewCard newWebsite={newWebsite} />
       </div>
     </>
   );
