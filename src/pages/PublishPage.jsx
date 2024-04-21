@@ -106,7 +106,7 @@ const PublishPage = () => {
         navigate("/");
       });
     } catch (error) {
-      console.error("Post request was unsuccesful.", error);
+      console.error("Post request was unsuccessful.", error);
     }
   };
 
