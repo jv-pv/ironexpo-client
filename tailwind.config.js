@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        ironFont: ["ironFont", "sans-serif "],
+        ironFont: ["ironFont", "sans-serif"],
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
