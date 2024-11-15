@@ -40,7 +40,7 @@ const PublishPageForm = ({
         <h2 className="text-xl">Tech Stack</h2>
 
         <div className="checkbox-wrapper">
-          {websiteTech.map((tech) => (
+          {websiteTech?.map((tech) => (
             <div key={`tech-${tech.id}`} className="tech-stack">
               <input
                 type="checkbox"
