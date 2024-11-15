@@ -23,7 +23,7 @@ const PublishPageForm = ({
         />
 
         <label htmlFor={"url-" + id} className="text-xl">
-          Dascription
+          Description
         </label>
         <textarea
           id={"description" + id}
@@ -73,7 +73,7 @@ const PublishPageForm = ({
                   id="technologies-other"
                   name="technologiesOtherText"
                   value={newWebsite.technologiesOtherText}
-                  placeholder="Add new technologies seperated by commas"
+                  placeholder="Add new technologies separated by commas"
                   onChange={handleFormChange}
                 />
               </div>

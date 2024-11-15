@@ -43,6 +43,14 @@ const PublishPage = () => {
           };
         } else {
           if (checked) {
+            // Spread through the technologies and categories arrays and add the new value if it doesn't exist
+            // ...prev[name] spreads the technologies and/or categories array
+            // ...prev[name].filter((element) => element !== value) filters out the value if it already exists
+            // ...[value] adds the new value to the array
+            // return is the new state object
+            // prev is the previous state object
+            // name is the name of the property to update
+            // value is the new value to add to the array
             return {
               ...prev,
               [name]: [...prev[name], value],

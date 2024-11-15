@@ -102,6 +102,7 @@ const EditWebsiteDetailsPage = () => {
           };
         } else {
           if (checked) {
+            console.log(prev,  name)
             return {
               ...prev,
               [name]: [...prev[name], value],
@@ -163,7 +164,7 @@ const EditWebsiteDetailsPage = () => {
         navigate(`/websites/${websiteId}`)
       })
     } catch (error) {
-      console.error("Put request was unsuccesful.", error)
+      console.error("Put request was unsuccessful.", error)
     }
   };
 
